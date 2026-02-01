@@ -1,97 +1,93 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Valentine 💖</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #ffb6c1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffb6c1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    .container {
-      text-align: center;
-    }
+.container {
+  text-align: center;
+}
 
-    h1 {
-      color: #fff;
-      font-size: 2.5em;
-      margin-bottom: 30px;
-    }
+h1 {
+  color: #fff;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
 
-    .buttons {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-    }
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
 
-    button {
-      font-size: 1.2em;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
+button {
+  font-size: 1.2em;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    #yes {
-      background: #ff4d6d;
-      color: white;
-    }
+#yes {
+  background: #ff4d6d;
+  color: white;
+}
 
-    #no {
-      background: #fff;
-      color: #ff4d6d;
-    }
+#no {
+  background: #fff;
+  color: #ff4d6d;
+}
 
-    .message {
-      margin-top: 20px;
-      color: white;
-      font-size: 1.2em;
-    }
+.message {
+  margin-top: 20px;
+  color: white;
+  font-size: 1.2em;
+}
 
-    /* Animation finale */
-    .love-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #ff69b4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
+/* Animation finale */
+.love-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ff69b4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
-    .love-text {
-      font-size: 4em;
-      color: white;
-      z-index: 2;
-    }
+.love-text {
+  font-size: 4em;
+  color: white;
+  z-index: 2;
+}
 
-    .heart {
-      position: absolute;
-      color: red;
-      font-size: 2em;
-      animation: fall linear infinite;
-    }
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 2em;
+  animation: fall linear infinite;
+}
 
-    @keyframes fall {
-      from {
-        transform: translateY(-10vh);
-      }
-      to {
-        transform: translateY(110vh);
-      }
-    }
-  </style>
+@keyframes fall {
+  from { transform: translateY(-10vh); }
+  to { transform: translateY(110vh); }
+}
+</style>
 </head>
 <body>
 
@@ -105,34 +101,50 @@
 </div>
 
 <script>
-  let noCount = 0;
-  const yesBtn = document.getElementById("yes");
-  const noBtn = document.getElementById("no");
-  const msg = document.getElementById("msg");
+let noCount = 0;
+let yesCount = 0;
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const msg = document.getElementById("msg");
 
-  noBtn.addEventListener("click", () => {
-    noCount++;
+noBtn.addEventListener("click", () => {
+  noCount++;
 
-    if (noCount === 1) {
-      msg.textContent = "Mauvaise réponse, réessaye 🫤";
-      yesBtn.style.transform = "scale(1.5)";
-    } 
-    else if (noCount === 2) {
-      msg.textContent = "Réessaye encore 😡";
-      yesBtn.style.position = "fixed";
-      yesBtn.style.top = "0";
-      yesBtn.style.left = "0";
-      yesBtn.style.width = "100%";
-      yesBtn.style.height = "100%";
-      yesBtn.style.fontSize = "3em";
-      noBtn.style.display = "none";
-    }
-  });
+  if (noCount === 1) {
+    msg.textContent = "Mauvaise réponse, réessaye 🫤";
+    yesBtn.style.transform = "scale(1.5)";
+  } 
+  else if (noCount === 2) {
+    msg.textContent = "Réessaye encore 😡";
+    yesBtn.style.position = "fixed";
+    yesBtn.style.top = "0";
+    yesBtn.style.left = "0";
+    yesBtn.style.width = "100%";
+    yesBtn.style.height = "100%";
+    yesBtn.style.fontSize = "3em";
+    noBtn.style.display = "none";
+  }
+});
 
-  yesBtn.addEventListener("click", () => {
+yesBtn.addEventListener("click", () => {
+  yesCount++;
+
+  if (yesCount === 1) {
+    msg.textContent = "For sure???";
+    yesBtn.style.transform = "scale(1.5)";
+  } else if (yesCount === 2) {
+    yesBtn.style.position = "fixed";
+    yesBtn.style.top = "0";
+    yesBtn.style.left = "0";
+    yesBtn.style.width = "100%";
+    yesBtn.style.height = "100%";
+    yesBtn.style.fontSize = "3em";
+    noBtn.style.display = "none";
+    msg.textContent = "";
+  } else if (yesCount >= 3) {
     document.body.innerHTML = `
       <div class="love-screen">
-        <div class="love-text">Je t’aime ❤️</div>
+        <div class="love-text">JE T’AIME ❤️</div>
       </div>
     `;
 
@@ -144,7 +156,8 @@
       heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
       document.body.appendChild(heart);
     }
-  });
+  }
+});
 </script>
 
 </body>
