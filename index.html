@@ -32,7 +32,7 @@ h1 {
 }
 
 button {
-  font-size: 1.2em;
+  font-size: 1.2em; /* texte principal du bouton */
   padding: 15px 30px;
   border: none;
   border-radius: 10px;
@@ -57,9 +57,10 @@ button {
   font-size: 1.2em;
 }
 
+/* Texte plus petit pour le span "Appuie" */
 #yes span {
   display: block;
-  font-size: 0.6em;
+  font-size: 0.5em; /* environ deux fois plus petit que "Oui" */
   margin-top: 5px;
 }
 
@@ -131,8 +132,8 @@ noBtn.addEventListener("click", () => {
     yesBtn.style.height = "100%";
     yesBtn.style.fontSize = "3em";
     noBtn.style.display = "none";
-    yesStep = 1; // Passe directement au plein écran pour Oui
-    yesText.textContent = "";
+    yesText.textContent = "Appuie"; // texte par défaut plein écran
+    yesStep = 2; // prochaine étape = clics successifs pour textes
   }
 });
 
@@ -142,11 +143,11 @@ yesBtn.addEventListener("click", () => {
     // Premier clic Oui normal
     msg.textContent = "For sure???";
     yesBtn.style.transform = "scale(1.5)";
-    yesStep = 1; // Prochaine étape = plein écran
+    yesStep = 1; // prochaine étape = plein écran
     noBtn.style.display = "none"; // Non disparaît dès le premier clic
   } 
   else if (yesStep === 1) {
-    // Bouton plein écran
+    // Bouton plein écran après premier Oui
     yesBtn.style.position = "fixed";
     yesBtn.style.top = "0";
     yesBtn.style.left = "0";
@@ -155,8 +156,8 @@ yesBtn.addEventListener("click", () => {
     yesBtn.style.fontSize = "3em";
     noBtn.style.display = "none";
     msg.textContent = "";
-    yesText.textContent = "";
-    yesStep = 2; // prochaine étape = textes successifs
+    yesText.textContent = "Appuie"; // texte par défaut plein écran
+    yesStep = 2; // prochaine étape = clics successifs
   } 
   else if (yesStep >= 2) {
     yesStep++;
